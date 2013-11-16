@@ -6,7 +6,7 @@ include_once("includes/navbar.php");
       <!-- Begin page content -->
 		<style>
 			body {
-                background: url('images/dashboard.png') no-repeat ;
+                background: url('images/arena.png') no-repeat center center fixed;
 			}
 		</style>
       <div class="container">

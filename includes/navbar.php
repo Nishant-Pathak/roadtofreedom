@@ -1,36 +1,31 @@
 <?php
+$path = substr($_SERVER['REQUEST_URI'],1);
+
+echo $path;
 ?>
       <!-- Fixed navbar -->
-      <div class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="/">Road To Freedom</a>
           </div>
-          <div class="collapse navbar-collapse">
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
             <p class="navbar-text pull-right">
               Logged in as <a href="#" class="navbar-link">Guest</a>
             </p>
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
+            <ul class="nav navbar-nav navbar-right">
+              <li <?php if($path == "temple.php") echo "class='active'"; ?> ><a href="temple.php">Temple</a></li>
+              <li <?php if($path == "city.php") echo "class='active'"; ?> ><a href="city.php">City</a></li>
+              <li <?php if($path == "theatre.php") echo "class='active'"; ?> ><a href="theatre.php">Theatre</a></li>
+              <li <?php if($path == "arena.php") echo "class='active'"; ?> ><a href="arena.php">Arena</a></li>
+              <li <?php if($path == "library.php") echo "class='active'"; ?> ><a href="library.php">Library</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

@@ -6,7 +6,7 @@ include_once("includes/navbar.php");
       <!-- Begin page content -->
 		<style>
 			body {
-                background: url('images/dashboard.png') no-repeat ;
+                background: url('images/temple.png') no-repeat ;
 			}
 		</style>
       <div class="container">
