@@ -6,11 +6,10 @@ include_once("../includes/navbar.php");
       <!-- Begin page content -->
 		<style>
 			body {
-                background: url('../images/dashboard.png') no-repeat ;
-								padding : 40px;
+                background: url('../images/temple.png') no-repeat;
 			}
 		</style>
-      <div id="container">
+      <div class="container">
       </div>
     </div>
 
