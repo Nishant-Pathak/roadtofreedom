@@ -7,6 +7,7 @@ include_once("../includes/navbar.php");
 		<style>
 			body {
                 background: url('../images/temple.png') no-repeat ;
+								padding: 80px;
 			}
 		</style>
       <div class="container">

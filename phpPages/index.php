@@ -7,10 +7,10 @@ include_once("../includes/navbar.php");
 		<style>
 			body {
                 background: url('../images/dashboard.png') no-repeat ;
-								padding: 40px;
+								padding : 40px;
 			}
 		</style>
-      <div id="container>
+      <div id="container">
       </div>
     </div>
 
