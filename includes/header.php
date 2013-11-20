@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <!--link rel="shortcut icon" href="../../assets/ico/favicon.png"-->
 
-    <title>Sticky Footer Navbar Template for Bootstrap</title>
+    <title>RoadToFreedom</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">

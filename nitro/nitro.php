@@ -1,6 +1,6 @@
 <?php
 
-include_once("include/nitro_response.php");
+include_once("nitro_response.php");
 
 session_start();
 
