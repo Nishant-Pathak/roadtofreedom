@@ -9,7 +9,8 @@ include_once("../includes/navbar.php");
                 background: url('../images/temple.png') no-repeat;
 			}
 		</style>
-      <div class="container">
+      <div class="container" position:"relative">
+				<a id="library-book" href="#" data-toggle="modal" class="" ></a>
       </div>
     </div>
 

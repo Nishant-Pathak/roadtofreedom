@@ -1,5 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+	<?php
+  include 'db_connect.php';
+  include 'login_security_functions.php';
+  $username = 'Guest';
+  sec_session_start();
+  if(login_check($mysqli) != true) {
+		session_destroy();
+		header('Location: ../index.php?login=false');
+		exit();
+	}
+  $user_id = $_SESSION['user_id'];
+  $result = mysqli_query($mysqli, "SELECT * FROM members WHERE id= $user_id" );
+  if(! $result) {
+    die("SQL Error: " . mysqli_error($mysqli));
+  }
+  while ($row = mysqli_fetch_array($result)) {
+    $username = $row['username'];
+  }
+	?>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
