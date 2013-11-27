@@ -1,19 +1,8 @@
 <?php
-include_once("includes/header.php");
-include_once("includes/navbar.php");
 
-?>
-      <!-- Begin page content -->
-		<style>
-			body {
-                background: url('../images/dashboard.png') no-repeat ;
-			}
-		</style>
-      <div id="container">
-      </div>
-    </div>
-
-<?php
-
-include_once("includes/footer.php");
-?>
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+header('Location: dashboard');
