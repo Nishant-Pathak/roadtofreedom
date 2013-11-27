@@ -3,25 +3,25 @@
 
 html,
 body {
-  height    : 100%;
-  /* The html and body elements cannot have any padding or margin. */
+    height    : 100%;
+    /* The html and body elements cannot have any padding or margin. */
 }
 
 /* Wrapper for page content to push down footer */
 #wrap {
-  min-height: 100%;
-  height    : auto !important;
-  height    : 100%;
-  /* Negative indent footer by its height */
-  margin    : 0 auto -50px;
-  /* Pad bottom by footer height */
-  padding   : 50px 0 50px;
+    min-height: 100%;
+    height    : auto !important;
+    height    : 100%;
+    /* Negative indent footer by its height */
+    margin    : 0 auto -50px;
+    /* Pad bottom by footer height */
+    padding   : 50px 0 50px;
 }
 
 /* Set the fixed height of the footer here */
 #footer {
-  float     : right;
-  height    : 50px;
+    float     : right;
+    height    : 50px;
 }
 
 
@@ -31,18 +31,18 @@ body {
 
 
 #wrap > .container {
-  padding  : 50px 15px 0;
+    padding  : 50px 15px 0;
 }
 
 .container .credit {
-  margin   : 15px 0;
+    margin   : 15px 0;
 }
 
 #footer > .container {
-  padding-left   : 10px;
-  padding-right  : 10px;
+    padding-left   : 10px;
+    padding-right  : 10px;
 }
 
 code {
-  font-size: 80%;
+    font-size: 80%;
 }

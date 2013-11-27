@@ -21,7 +21,7 @@ if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, passw
    $insert_stmt->bind_param('ssss', $username, $email, $password, $random_salt); 
    // Execute the prepared query.
    if($insert_stmt->execute()) {
-	    header('Location: ../index.php?success=true');
+	    header('Location: ../dashboard/?success=true');
 	}
 }
 
