@@ -9,36 +9,81 @@ p {
     font-family: arial,verdana,helvetica,sans-serif;
     font-size: 11px;
 }
-#library-book {
-    width		:	10%;
-    height	:	50px;
-    border	:	1px solid red;
-    position:	absolute; 
-    top			:	374px;
-    right		:	580px;
+
+a.link {
+    cursor: pointer !important;
 }
 
-#monster {
-    width		:	12%;
-    height	:	180px;
-    border	:	1px solid red;
-    position:	absolute;
-    top			:	320px;
-    left		:	30px;
+#temple_book {
+        position: absolute;
+        z-index: 1;
+        width: 188px; 
+        height: 73px; 
+        top:270px; 
+        left:700px;
+        
+ }
+.panel-articles{
+   width: 100%;
+   position: absolute;
+   background-color: #000;
+   box-shadow: 4px -4px 4px rgba(0,0,0,0.2);
+   margin-left: -102%;
+   z-index:20;
+   -webkit-transition: all .6s ease-in-out;
+   -moz-transition: all .6s ease-in-out;
+   -o-transition: all .6s ease-in-out;
+   -ms-transition: all .6s ease-in-out;
+   transition: all .6s ease-in-out;
+}
+.panel-articles:target{
+    margin-left: 0%;
+    background-color: black;
+    opacity: 0.8;
 }
 
-#entercity {
-    width		:	60%;
-    height	:	450px;
-    border	:	1px solid red;
-    position:	absolute; 
-    top			:	85px;
-    right		:	0px
-}
-body .modal-body {
+.panel-margin {
+    margin-top:20px;
 }
 
-body #book_modal {
+.container-temple {
+    width:90%;
+    height: 100%;
+    margin-left:5%;
+    margin-right:5%;
+}
+.close {
+    color:white;
+    opacity:1;
+}
+
+.close:hover {
+    color:white;
+}
+
+.close-div {
+    width:100%;
+    height:20px;
+    margin-top:5px;
+    margin-bottom: 20px;
+}
+
+.search-div {
+    text-align: center;
+    width:100%;
+    margin-bottom: 20px;
+}
+
+.well {
+    width:80%;
+    overflow-y: scroll; 
+    float: left;
+}
+
+.selection-div {
+    width:20%;
+    float:left;
+    padding-left: 10px;
 }
 
 .dropdown-menu-arrow::before {
