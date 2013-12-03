@@ -4,6 +4,19 @@
  * and open the template in the editor.
  */
 
+function collapseDiv(showDiv) {
+    var categoriesDivArray = new Array('One', //MostRecent
+                                       'Two', // MostPopular
+                                       'Three'); //Trending
+    for (itr in categoriesDivArray) {
+        if ( categoriesDivArray[itr] === showDiv) {
+            $('#' + showDiv).collapse('show');
+        } else {
+            $('#' + categoriesDivArray[itr]).collapse('hide');
+        }
+    }
+}
+
 function submit_logout_form(logout_form) {
     logout_form.submit();
 }

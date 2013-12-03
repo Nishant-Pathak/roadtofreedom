@@ -26,8 +26,8 @@ include_once("../includes/navbar.php");
             <div class="panel-group" id="accordion">
                 <div class="panel-primary">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" onclick="collapseDiv('One','Two','Three');">
+                        <h4 class="panel-title">                           
+                            <a data-toggle="collapse" data-parent="#accordion" onclick="collapseDiv('One');">
                                 <b> Most Recent </b>
                             </a>
                         </h4>
@@ -44,7 +44,7 @@ include_once("../includes/navbar.php");
                 <div class="panel-primary">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" onclick="collapseDiv('Two','One','Three');">
+                            <a data-toggle="collapse" data-parent="#accordion" onclick="collapseDiv('Two');">
                                 <b>Most Popular</b>
                             </a>
                         </h4>
@@ -61,7 +61,7 @@ include_once("../includes/navbar.php");
                 <div class="panel-primary">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" onclick="collapseDiv('Three','One','Two');">
+                            <a data-toggle="collapse" data-parent="#accordion" onclick="collapseDiv('Three');">
                                 <b>Trending</b>
                             </a>
                         </h4>
@@ -79,12 +79,6 @@ include_once("../includes/navbar.php");
     </div>
 </div>
 <script>
-    function collapseDiv(showDiv,hideDiv1,hideDiv2) {
-        $('#'+showDiv).collapse('show');
-        $('#'+hideDiv1).collapse('hide');
-        $('#'+hideDiv2).collapse('hide');
-        
-    }
 var resizeEnd;
 $(window).bind('resize', function(e) {
     clearTimeout(resizeEnd);
@@ -102,3 +96,4 @@ $(document).ready( function(){
 </script>
 <?php
 include_once("../includes/footer.php");
+?>
