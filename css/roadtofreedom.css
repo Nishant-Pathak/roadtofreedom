@@ -10,28 +10,193 @@ p {
     font-size: 11px;
 }
 
+a:hover {
+    cursor:pointer;
+}
 
+#article_heading {
+    font-family:Georgia,serif;
+    color:#4E443C;
+    font-variant: small-caps; 
+    text-transform: none; 
+    font-weight: bold; 
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.postcard_heading {
+    font-family:Georgia,serif;
+    color:#4E443C;
+    font-variant: small-caps; 
+    text-transform: none; 
+    font-weight: bold; 
+    font-size: 15px;
+    text-align: center;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    /* Non standard for webkit */
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+#article_content pre:first-letter{
+    text-transform: uppercase;
+}
+#article_content pre {     
+    border: none;
+    color: #424242;
+    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+    letter-spacing:0.1em;
+    text-transform: lowercase;
+    line-height: 145%;
+    font-size: 18px;
+    font-weight: 200;
+    font-variant: small-caps;
+
+    /* Cross browser solution for doing word wrapping http://kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/ */
+    /* mozilla */
+    -ms-word-break: break-all;
+    word-break: break-all;
+    /* Non standard for webkit */
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+
+
+}
+.post-card-container {
+    width:50%;
+    height:100%;
+    float:left;    
+    margin-right:3%;
+}
+.postcardleft {
+    width: 20%;
+    height: 80%;
+    float: left;
+    margin-left:2%;
+    border:1px solid black;
+    margin-right:3%;
+    box-shadow: 10px 10px 5px #484848;
+    background-color: white;
+    transition: 0.5s ease-in-out;
+}
+.postcardleft:hover{
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.postcardleftimage {
+    width: 100%;
+    height: 60%;
+}
+.postcardright {
+    width: 20%;
+    height: 80%;
+    float:left;
+    box-shadow: 10px 10px 5px #484848;
+    border:1px solid black;
+    background-color: white;
+    transition: 0.5s ease-in-out;
+}
+.postcardright:hover{
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.postcardrightimage {
+    width: 100%;
+    height: 60%;
+}
+.postcard0 {
+    width:60%;
+    height:50%;
+    float:left;
+    margin-right: 4%;
+    box-shadow: 5px 5px 5px #484848;
+    background-color: white;
+    border:1px solid black;
+    transition: 0.5s ease-in-out;
+}
+.postcard0:hover{
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.postcard0image {
+    width: 60%;
+    height: 100%;
+    float:left;
+}
+
+.postcard1 {
+    width:36%;
+    height:50%;
+    float:left;
+    box-shadow: 5px 5px 5px #484848;
+    background-color: white;
+    border:1px solid black;
+    transition: 0.5s ease-in-out;
+}
+.postcard1:hover{
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.postcard1image {
+    width: 100%;
+    height: 60%;
+}
+
+.postcard3 {
+    width:80%;
+    height:50%;
+    margin-top:3%;
+    margin-left:10%;
+    float:left;
+    box-shadow: 5px 5px 5px #484848;
+    background-color: white;
+    border:1px solid black;
+    transition: 0.5s ease-in-out;
+}
+.postcard3:hover{
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.postcard3image {
+    width: 60%;
+    height: 100%;
+    float:left;
+}    
 #temple_book {
-        position: absolute;
-        z-index: 1;
-        width: 188px; 
-        height: 73px; 
-        top:270px; 
-        left:700px;
-        
- }
+    position: absolute;
+    z-index: 1;
+    width: 188px; 
+    height: 73px; 
+    top:270px; 
+    left:700px;
+
+}
 .panel-articles{
-   width: 100%;
-   position: absolute;
-   background-color: #000;
-   box-shadow: 4px -4px 4px rgba(0,0,0,0.2);
-   margin-left: -102%;
-   z-index:20;
-   -webkit-transition: all .6s ease-in-out;
-   -moz-transition: all .6s ease-in-out;
-   -o-transition: all .6s ease-in-out;
-   -ms-transition: all .6s ease-in-out;
-   transition: all .6s ease-in-out;
+    width: 100%;
+    position: absolute;
+    background-color: #000;
+    box-shadow: 4px -4px 4px rgba(0,0,0,0.2);
+    margin-left: -102%;
+    z-index:20;
+    -webkit-transition: all .6s ease-in-out;
+    -moz-transition: all .6s ease-in-out;
+    -o-transition: all .6s ease-in-out;
+    -ms-transition: all .6s ease-in-out;
+    transition: all .6s ease-in-out;
 }
 .panel-articles:target{
     margin-left: 0%;

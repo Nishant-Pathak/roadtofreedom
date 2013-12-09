@@ -37,10 +37,11 @@ $path = substr($_SERVER['REQUEST_URI'], 1);
                         <li><a href="../arena">Arena</a></li>
                         <li><a href="../library">Library</a></li>
                         <li class="divider"></li> 
-                        <form class="navbar-form" id="logout_form" action="../includes/helper_functions.php" method="post">
+                        <li><form class="navbar-form" id="logout_form" action="../includes/helper_functions.php" method="post">
                             <input type="hidden" name="check_logout" value="true"/>
-                            <li><a onclick="submit_logout_form(logout_form);">Logout</a></li>
+                            <a onclick="submit_logout_form(logout_form);">Logout</a>
                         </form>
+                        </li>
                     </ul>
                 </li>
             <?php } else { ?>     

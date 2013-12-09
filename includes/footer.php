@@ -13,6 +13,7 @@
 <script type="text/javascript" src="../javascript/sha512.js"></script>
 <script type="text/javascript" src="../javascript/helper_javascript_functions.js"></script>
 <script type="text/javascript" src="../javascript/adjustHeightWidth.js"></script>
+<script type="text/javascript" src="../jquery-flex/jquery.flex.min.js"></script>
 <link href="../css/roadtofreedom.css" rel="stylesheet">
 </body>
 </html>
