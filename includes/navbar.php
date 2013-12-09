@@ -48,13 +48,17 @@ $path = substr($_SERVER['REQUEST_URI'], 1);
                 <li class="divider-vertical"></li>
                 <li class="dropdown btn-group pull-right">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
-                    <div class="dropdown-menu dropdown-menu-arrow" style="margin-top: 2px; padding: 15px; padding-bottom: 0px;">
+                    <div class="dropdown-menu dropdown-menu-arrow" style="margin-top: 2px; padding: 15px; padding-bottom: 0px;min-width: 250px;">
                         <p class="pull-left" style="margin-bottom: 5px;"><b>Login as </b><a onclick="guestLogin(login_form)">Guest !</a></p>
-                        <form action="../includes/login.php" method="post" accept-charset="UTF-8" name="login_form">
-                            <input id="email" style="margin-bottom: 15px;" type="text" name="email" size="30" placeholder="Email"/>
-                            <input id="password" style="margin-bottom: 15px;" type="password" name="password" size="30" placeholder="Password" onkeyup="submitOnEnter(event, 'signinbtn');"/>           
-                            <input class="btn btn-primary" id="signinbtn" onclick="formhash(login_form, login_form.password);" style="margin-bottom: 5px; clear: left; width: 100%; height: 32px; font-size: 13px;" type="button" name="signin" value="Sign In" />                                            
-                        </form>
+                            <form role="form" action="../includes/login.php" method="post" accept-charset="UTF-8" name="login_form">
+                                <div class="form-group" >
+                                    <input type="email" class="form-control" id="email" placeholder="Email" style="height:30px;" required>
+                                </div>
+                                <div class="form-group" >
+                                    <input type="password" class="form-control" id="password" placeholder="Password" style="height:30px;" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary" >Submit</button>
+                            </form>
                         <p class="pull-right" style="margin-bottom: 15px;"><b>(New User? </b><a href="#registration_modal" data-toggle="modal">SignUp</a><b>)</b></p>                                                                              
                     </div>
                 </li>

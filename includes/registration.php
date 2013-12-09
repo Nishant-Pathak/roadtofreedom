@@ -6,7 +6,8 @@ if (mysqli_connect_errno()) {
 } 
 
 // The hashed password from the form
-$password = $_POST['p']; 
+$password = md5($_POST['password']);
+
 // Create a random salt
 $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
 // Create salted password (Careful not to over season)
