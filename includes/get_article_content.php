@@ -38,7 +38,6 @@ if (isset($_POST['article_path'])) {
     $type = $_POST['article_type'];
     $filepath = "../".$type."/".$filename;
     $content = read_file_docx($filepath);
-    error_log($content);
     echo $content;
 }
     
