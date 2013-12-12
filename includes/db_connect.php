@@ -5,5 +5,5 @@ define("USER", "root"); // The database username.
 define("PASSWORD", "freebsd"); // The database password. 
 define("DATABASE", "roadtofreedom"); // The database name.
 
-$mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
+$mysqli = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 ?>

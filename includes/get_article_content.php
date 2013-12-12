@@ -1,10 +1,8 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+include 'db_connect.php';
+include 'helper_functions.php';
+
 function read_file_docx($filename) {
     $striped_content = '';
     $content = '';
@@ -33,14 +31,40 @@ function read_file_docx($filename) {
     return $striped_content;
 }
 
-if (isset($_POST['article_path'])) {
+function getUpvoteStatusForArticleForCurrentUser($mysqli,$user_id,$article_id) {
+    
+    $isArticleUpvotedByUser = "select * from article_upvoted where article_id=".$article_id." and id=".$user_id;
+    $isArticleUpvotedByUserResult = mysqli_query($mysqli, $isArticleUpvotedByUser);
+    if (!$isArticleUpvotedByUserResult) {
+        error_log("[SQL] isArticleUpvotedByUserResult : " . mysqli_error($mysqli));
+        return "false";
+    }
+    if (mysqli_num_rows($isArticleUpvotedByUserResult) == 0) {
+        return "NO";
+    } else {
+        while($row= mysqli_fetch_array($isArticleUpvotedByUserResult)) {
+            if($row['upvoted'] === "YES"){
+                return "YES";
+            } else if($row['upvoted'] === "NO") {
+                return "NO";
+            }
+        }
+    }
+}
+
+if (isset($_POST['article_path'])) {   
     $filename = $_POST['article_path'];
     $type = $_POST['article_type'];
     $filepath = "../".$type."/".$filename;
     $content = read_file_docx($filepath);
-    echo $content;
+    $isArticleUpvoted = getUpvoteStatusForArticleForCurrentUser($mysqli,$_POST['user_id'],$_POST['article_id']);
+    if($isArticleUpvoted === "false") {
+        $result = array("status" => "error","ErrorField" => "isArticleUpvotedByUser");
+        echo json_encode($result);
+        return;
+    }
+    $result = array("status" => "success","content" => $content,"isArticleUpvoted" => $isArticleUpvoted);
+    echo json_encode($result);
+    return;
 }
     
-
-
-//echo 'hello';
