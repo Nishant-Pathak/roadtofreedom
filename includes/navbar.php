@@ -5,11 +5,19 @@ include 'helper_functions.php';
 sec_session_start();
 $username = "notLogin";
 
+$path = substr($_SERVER['REQUEST_URI'], 1);
+
 if (login_check($mysqli) == true) {
     $user_id = $_SESSION['user_id'];
     $username = getUsername($user_id, $mysqli);
+} else {
+  $splitPath = preg_split("/[\/]/",$path);
+  $dir = $splitPath[1];
+  if($dir != "dashboard") {
+     header('Location: ../dashboard');
+  }
 }
-$path = substr($_SERVER['REQUEST_URI'], 1);
+
 ?>
 <!-- Fixed navbar -->
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -49,17 +57,24 @@ $path = substr($_SERVER['REQUEST_URI'], 1);
                 <li class="dropdown btn-group pull-right">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
                     <div class="dropdown-menu dropdown-menu-arrow" style="margin-top: 2px; padding: 15px; padding-bottom: 0px;min-width: 250px;">
+                        <div>
                         <p class="pull-left" style="margin-bottom: 5px;"><b>Login as </b><a onclick="guestLogin(login_form)">Guest !</a></p>
-                            <form role="form" action="../includes/login.php" method="post" accept-charset="UTF-8" name="login_form">
-                                <div class="form-group" >
-                                    <input type="email" class="form-control" id="email" placeholder="Email" style="height:30px;" required>
-                                </div>
-                                <div class="form-group" >
-                                    <input type="password" class="form-control" id="password" placeholder="Password" style="height:30px;" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary" >Submit</button>
-                            </form>
-                        <p class="pull-right" style="margin-bottom: 15px;"><b>(New User? </b><a href="#registration_modal" data-toggle="modal">SignUp</a><b>)</b></p>                                                                              
+                        </div>
+                        <br />
+                        <div>
+                        <form role="form" action="../includes/login.php" method="post" accept-charset="UTF-8" name="login_form" id="login_form" autocomplete="off">
+                            <div class="form-group" >
+                            </div>
+                            <div class="form-group" >
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" style="height:30px;" required>
+                            </div>
+                            <div class="form-group" >
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" style="height:30px;" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" >Submit</button>
+                        </form>
+                        </div>
+                        <p class="pull-right" style="margin-bottom: 15px;"><b>(New User? </b><a href="#registration_modal" data-toggle="modal">SignUp</a><b>)</b></p>
                     </div>
                 </li>
             <?php } ?>

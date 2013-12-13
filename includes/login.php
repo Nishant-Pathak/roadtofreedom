@@ -7,10 +7,9 @@ if (mysqli_connect_errno()) {
 }
 include 'helper_functions.php';
 sec_session_start(); // Our custom secure way of starting a php session. 
-
-if (isset($_POST['email'], $_POST['p'])) {
+if (isset($_POST['email'], $_POST['password'])) {
     $email = $_POST['email'];
-    $password = $_POST['p']; // The hashed password.
+    $password = md5($_POST['password']); // The hashed password.
     if (login($email, $password, $mysqli) == true) {
         // Login success
         header('Location: ../dashboard');
