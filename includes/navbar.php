@@ -12,9 +12,8 @@ if (login_check($mysqli) == true) {
     $username = getUsername($user_id, $mysqli);
 } else {
   $splitPath = preg_split("/[\/]/",$path);
-  $dir = $splitPath[1];
-  if($dir != "dashboard") {
-     header('Location: ../dashboard');
+  if($splitPath[0] != "dashboard" && isset($splitPath[1]) && $splitPath[1] != "dashboard") {
+    header('Location: ../dashboard');
   }
 }
 
@@ -71,7 +70,7 @@ if (login_check($mysqli) == true) {
                             <div class="form-group" >
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password" style="height:30px;" required>
                             </div>
-                            <button type="submit" class="btn btn-primary" >Submit</button>
+                            <button type="submit" class="btn btn-primary" >Sign In</button>
                         </form>
                         </div>
                         <p class="pull-right" style="margin-bottom: 15px;"><b>(New User? </b><a href="#registration_modal" data-toggle="modal">SignUp</a><b>)</b></p>

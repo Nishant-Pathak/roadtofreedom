@@ -19,6 +19,12 @@ $email = $_POST['email'];
 // Make sure you use prepared statements!
 $existing_email = "SELECT * FROM members WHERE email='".$email."'";
 $result = mysqli_query($mysqli,$existing_email);
+
+if(!$result) {
+   error_log("[SQL] : existing email check : ".mysqli_error($mysqli));
+   header('Location: ../dashboard/?error=true');
+   exit(0);
+}
 $rCount = mysqli_num_rows($result);
 
 if( $rCount == 0) {
@@ -26,11 +32,17 @@ if( $rCount == 0) {
       $insert_stmt->bind_param('ssss', $username, $email, $password, $random_salt); 
       // Execute the prepared query.
       if($insert_stmt->execute()) {
-	       header('Location: ../dashboard/?success=true');
-	   }
+         header('Location: ../dashboard/?success=true');
+      } else {
+         error_log("[SQL] : existing email check : ".mysqli_error($mysqli));
+         header('Location: ../dashboard/?error=true');
+         exit(0);
+      }
    }
 } else { 
-	       header('Location: ../dashboard/?error=true');
+           header('Location: ../dashboard/?error=true');
+           exit(0);
+
 }
 
 ?>

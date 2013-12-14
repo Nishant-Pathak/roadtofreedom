@@ -42,11 +42,11 @@ include_once ("../includes/helper_functions.php");
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <button type="button" class="close" style="color:black;" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">SignUp</h4>
                 </div>
-                <div class="modal-body">
-                    <form role="form" class="form-horizontal" name="loginHere" id="loginHere" method="post" action="../includes/registration.php">
+                <form role="form" class="form-horizontal" name="loginHere" id="loginHere" method="post" action="../includes/registration.php">
+                    <div class="modal-body">
                         <div class="form-group">
                             <label for="username" class="col-sm-2 control-label">Name:</label>
                             <div class="col-sm-10">
@@ -65,21 +65,15 @@ include_once ("../includes/helper_functions.php");
                                 <input class="form-control" type="password" id="password" name="password" required/>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-5 pull-right">
-                                <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                </div>
+                    </div>
+    	            <div class="modal-footer">
+                        <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
-</div>
 </div>
 
 <?php
