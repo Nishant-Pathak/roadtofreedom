@@ -35,6 +35,7 @@ CREATE TABLE `article_upvoted` (
 
 LOCK TABLES `article_upvoted` WRITE;
 /*!40000 ALTER TABLE `article_upvoted` DISABLE KEYS */;
+INSERT INTO `article_upvoted` VALUES (2,8,'NO'),(2,1,'NO'),(2,7,'YES'),(2,5,'YES');
 /*!40000 ALTER TABLE `article_upvoted` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +65,7 @@ CREATE TABLE `articles` (
 
 LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` VALUES (5,1,'The Chadar Experience','chadar_experience.docx',0,'2013-12-05','type1.gif','temple'),(5,3,'Germany and the Eurozone','germany_eurozone2.docx',0,'2013-12-05','type3.gif','temple'),(5,4,'Why did Greece Flounder','greece_flounder.docx',0,'2013-12-05','type4.gif','temple'),(5,5,'Syria-The lesson next door','syria.docx',0,'2013-12-05','type5.gif','temple'),(5,6,'Financius Crypto Currency','financius_crypto_currency.docx',0,'2013-12-08','type5.gif','temple'),(5,7,'Tanishq','Tanishq.docx',0,'2013-12-08','type5','temple'),(5,8,'Holiday Season and the post','holiday.docx',0,'2013-12-09','type5','temple');
+INSERT INTO `articles` VALUES (5,1,'The Chadar Experience','chadar_experience.docx',0,'2013-12-05','type1.gif','temple'),(5,3,'Germany and the Eurozone','germany_eurozone2.docx',0,'2013-12-05','type3.gif','temple'),(5,4,'Why did Greece Flounder','greece_flounder.docx',0,'2013-12-05','type4.gif','temple'),(5,5,'Syria-The lesson next door','syria.docx',1,'2013-12-05','type5.gif','temple'),(5,6,'Financius Crypto Currency','financius_crypto_currency.docx',0,'2013-12-08','type5.gif','temple'),(5,7,'Tanishq','Tanishq.docx',1,'2013-12-08','type5.gif','temple'),(5,8,'Holiday Season and the post','holiday.docx',0,'2013-12-09','type5.gif','temple');
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,4 +105,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-08 14:06:55
+-- Dump completed on 2013-12-13  2:44:37

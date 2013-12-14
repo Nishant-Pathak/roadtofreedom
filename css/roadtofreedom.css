@@ -1,4 +1,4 @@
-body {
+    body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -22,7 +22,30 @@ a:hover {
     font-weight: bold; 
     font-size: 30px;
     text-align: center;
-    margin-bottom: 10px;
+   // margin-bottom: 10px;
+}
+
+#likeOrDislike {
+    //margin-left: 15%;
+    font-family:Georgia,serif;
+    color:#006600;
+    font-variant: small-caps; 
+    font-size: 18px;
+}
+#thumbsUpImage {
+   transition: 0.5s ease-in-out;
+}
+
+#likeDislikeDiv {
+    width:  60px;
+    height: 80px;
+    text-align: center;
+    
+}
+#thumbsUpImage:hover {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .postcard_heading {
@@ -51,11 +74,11 @@ a:hover {
     color: #424242;
     font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
     letter-spacing:0.1em;
-    text-transform: lowercase;
+    //text-transform: lowercase;
     line-height: 145%;
     font-size: 18px;
     font-weight: 200;
-    font-variant: small-caps;
+    //font-variant: small-caps;
 
     /* Cross browser solution for doing word wrapping http://kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/ */
     /* mozilla */

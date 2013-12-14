@@ -5,26 +5,18 @@ include_once("../includes/db_connect.php");
 include_once ("../includes/helper_functions.php");
 ?>
 <!-- Begin page content -->
-<?php if (isset($_GET["logout"]) && $_GET["logout"] === "true") { ?>
-    <div class="alert alert-success alert-fade" style="display: block;">
-        <strong>Success!</strong> Logged Out! 
-    </div>
-<?php } ?>
-<?php if (isset($_GET["error"]) && $_GET["error"] === "true") { ?>
-    <div class="alert alert-danger alert-fade" style="display: block;">
-        <strong>Error!</strong> Invalid login. Please try again!
-    </div>
-<?php } ?>
-<?php if (isset($_GET["success"]) && $_GET["success"] === "true") { ?>
-    <div class="alert alert-success alert-fade" id="alert_template" style="display: block;">
-        <strong>Success!</strong> Your account has been registered. Please login!
-    </div>
-<?php } ?>
-<?php if (isset($_GET["login"]) && $_GET["login"] === "false") { ?>
-    <div class="alert alert-danger alert-fade" id="alert_template" style="display: block;">
-        <strong>Error!</strong> Please login to enter into city!
-    </div>
-<?php } ?>
+<?php
+if(isset($_SESSION['SHOWALERT']) && $_SESSION['SHOWALERT'] != ""){
+    $alertBanner = getAlertBanner($_SESSION['SHOWALERT']);
+    echo $alertBanner;
+    $_SESSION['SHOWALERT'] = "";
+
+} else if (isset($_GET["logout"]) && $_GET["logout"] === "true") {
+    $alertBanner = getAlertBanner('VALID_LOGOUT');
+    echo $alertBanner;
+}
+?>
+
 <script>
     window.setTimeout(function() {
         $(".alert-fade").fadeTo(500, 0).slideUp(500, function() {

@@ -1,6 +1,8 @@
 <?php
+
 include 'db_connect.php';
 include 'helper_functions.php';
+include 'error_codes.php';
 
 sec_session_start();
 $username = "notLogin";

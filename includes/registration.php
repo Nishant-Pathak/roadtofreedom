@@ -1,5 +1,7 @@
 <?php
 include 'db_connect.php';
+include 'helper_functions.php';
+sec_session_start();
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
@@ -22,6 +24,7 @@ $result = mysqli_query($mysqli,$existing_email);
 
 if(!$result) {
    error_log("[SQL] : existing email check : ".mysqli_error($mysqli));
+   $_SESSION['SHOWALERT'] = "DEFAULT";
    header('Location: ../dashboard/?error=true');
    exit(0);
 }
@@ -32,15 +35,18 @@ if( $rCount == 0) {
       $insert_stmt->bind_param('ssss', $username, $email, $password, $random_salt); 
       // Execute the prepared query.
       if($insert_stmt->execute()) {
-         header('Location: ../dashboard/?success=true');
+         header('Location: ../dashboard');
+         $_SESSION['SHOWALERT'] = "VALID_REGISTRATION";
       } else {
          error_log("[SQL] : existing email check : ".mysqli_error($mysqli));
-         header('Location: ../dashboard/?error=true');
+         $_SESSION['SHOWALERT'] = "DEFAULT";
+         header('Location: ../dashboard');
          exit(0);
       }
    }
 } else { 
-           header('Location: ../dashboard/?error=true');
+           $_SESSION['SHOWALERT'] = "INVALID_REGISTRATION_1";
+           header('Location: ../dashboard');
            exit(0);
 
 }
