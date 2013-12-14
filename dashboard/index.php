@@ -42,31 +42,38 @@ include_once ("../includes/helper_functions.php");
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <button type="button" class="close" style="color:black;" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">SignUp</h4>
                 </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" name="loginHere" id="loginHere" method="post" action="../includes/registration.php">
-                        <span class="label label-default" style="width:200px;margin: 0px 50px 0px 0px">Name:</span>
-                        <input class="span5" type="text" id="username" name="username" />
-                        <br/><br/>
-                        <span class="label label-default" style="width:200px;margin: 0px 50px 0px 0px">Email:</span>
-                        <input class="span5" type="text" id="email" name="email" />
-                        <br/><br/>
-                        <span class="label label-default" style="width:200px; margin: 0px 27px 0px 0px;">Password:</span>
-                        <input class="span5" type="password" id="password" name="password" />
-                        <br/><br/>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <input  type="button" class="btn btn-primary" onclick="formhash(loginHere, loginHere.password);" value="Save changes" />
-                </div>
+                <form role="form" class="form-horizontal" name="loginHere" id="loginHere" method="post" action="../includes/registration.php">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="username" class="col-sm-2 control-label">Name:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" id="username" name="username" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Email:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="email" id="email" name="email" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">Password:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="password" id="password" name="password" required/>
+                            </div>
+                        </div>
+                    </div>
+    	            <div class="modal-footer">
+                        <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
-</div>
 </div>
 
 <?php
