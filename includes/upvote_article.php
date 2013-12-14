@@ -41,9 +41,15 @@ if (login_check($mysqli) == true) {
     $user_id = $_SESSION['user_id'];
     
     //get upvotes for the article
+    if(!isset($_POST['articleid']) || !isset($_POST['userid'])) {
+        $result = array("status" => "error","ErrorField" => "Error fetching articleid or userid");
+        echo json_encode($result);
+        return;
+    }
+    
     $upvoteCount = getUpvoteCount($mysqli,$_POST['articleid']);
     if($upvoteCount === "false") {
-        $result = array("status" => "error","ErrorField"=>"getUpvoteCount");
+        $result = array("status" => "error","ErrorField"=>"getUpvoteCount","upvote"=>$upvoteCount);
         echo json_encode($result);
         return;
     }

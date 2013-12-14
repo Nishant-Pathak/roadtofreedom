@@ -9,9 +9,9 @@ function IsError($code) {
 
 function GetError($code) {
     if( IsError($code)) {
-        return "ERROR";
+        return "ERROR!";
     }
-    return "SUCCESS";
+    return "SUCCESS!";
 };
 
 function GetSeverity($code) {
@@ -22,7 +22,7 @@ function GetSeverity($code) {
 }
 
 $error_codes = array(
-    "DEFAULT"                    => array(10000, "Broken Link---/~/----- ."),
+    "DEFAULT"                    => array(11000, "Broken Link---/~/----- ."),
     "VALID_LOGOUT"               => array(10010, "Logged Out Successfully."),
     "INVALID_LOGOUT"             => array(11010, "Invalid logout. Please try again."),
     "VALID_LOGIN"                => array(10020, "Logged in Successfully."),

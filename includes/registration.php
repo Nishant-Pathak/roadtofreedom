@@ -1,6 +1,7 @@
 <?php
-
 include 'db_connect.php';
+include 'helper_functions.php';
+sec_session_start();
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
@@ -23,6 +24,7 @@ $result = mysqli_query($mysqli,$existing_email);
 
 if(!$result) {
    error_log("[SQL] : existing email check : ".mysqli_error($mysqli));
+   $_SESSION['SHOWALERT'] = "DEFAULT";
    header('Location: ../dashboard/?error=true');
    exit(0);
 }
@@ -37,13 +39,13 @@ if( $rCount == 0) {
          $_SESSION['SHOWALERT'] = "VALID_REGISTRATION";
       } else {
          error_log("[SQL] : existing email check : ".mysqli_error($mysqli));
-         $_SESSION{['SHOWALERT'] = "DEFAULT";
+         $_SESSION['SHOWALERT'] = "DEFAULT";
          header('Location: ../dashboard');
          exit(0);
       }
    }
 } else { 
-           $_SESSION{['SHOWALERT'] = "DEFAULT";
+           $_SESSION['SHOWALERT'] = "INVALID_REGISTRATION_1";
            header('Location: ../dashboard');
            exit(0);
 

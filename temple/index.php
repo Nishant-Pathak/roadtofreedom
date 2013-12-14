@@ -171,9 +171,9 @@ while ($row = mysqli_fetch_array($result_popular)) {
                     user_id: userid
                 },
         function(data, status) {
+            $('html, body').css("cursor", "default");
+            $('a:hover').css("cursor","pointer");
             if (status === "success") {
-                $('html, body').css("cursor", "default");
-                $('a:hover').css("cursor","pointer");
                 var myData = jQuery.parseJSON(data);
                 if(myData.status === "success") {
                     var isArticleUpvotedByUser = myData.isArticleUpvoted; 
