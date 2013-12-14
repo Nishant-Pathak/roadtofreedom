@@ -1,5 +1,4 @@
 <?php
-
 include 'db_connect.php';
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
@@ -15,8 +14,10 @@ if (isset($_POST['email'], $_POST['password'])) {
         header('Location: ../dashboard');
     } else {
         // Login failed
-        header('Location: ../dashboard?error=true');
+        $_SESSION['SHOWALERT'] = "INVALID_LOGIN";
+        header('Location: ../dashboard');
     }
+    exit(0);
 } else {
     // The correct POST variables were not sent to this page.
     echo 'Invalid Request';

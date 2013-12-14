@@ -143,6 +143,7 @@ function logout() {
 // Destroy session
     session_destroy();
     header('Location: ../dashboard?logout=true');
+    exit(0);
 }
 
 
