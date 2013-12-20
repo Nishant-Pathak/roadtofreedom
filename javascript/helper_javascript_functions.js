@@ -30,7 +30,7 @@ function submitOnEnter(event, buttonToClick) {
 function guestLogin(login_form) {
     $('#email').val('rtfguest@gmail.com');
     $('#password').val('freebsd123$%^');
-	login_form.submit();
+    $('#login_form').submit();
 }
 
 

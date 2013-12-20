@@ -21,7 +21,7 @@ if (login_check($mysqli) == true) {
 
 ?>
 <!-- Fixed navbar -->
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom: 0px;">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
