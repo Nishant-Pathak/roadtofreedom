@@ -213,11 +213,13 @@ a:hover {
     left:700px;
 
 }
-#mission {
+#sidePanelLabel {
     display:block;
     position:absolute;
     z-index:3000;
     width:8%;
+    min-width: 2%;
+    min-height: 3%;
     height:12%;
     top:80px;
     left:0;

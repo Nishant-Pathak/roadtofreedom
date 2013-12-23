@@ -33,6 +33,17 @@ function guestLogin(login_form) {
     $('#login_form').submit();
 }
 
+function showPanelAndHideLabel() {
+    $("#sidePanelLabel").hide(300, function() {
+        location.href = "#sidePanel";
+    });
+}
+
+function hidePanelAndShowLabel() {
+    location.href = "#";
+    $("#sidePanelLabel").show(300);
+}
+
 
 
 

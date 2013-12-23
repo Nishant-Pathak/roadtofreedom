@@ -26,6 +26,7 @@ if(isset($_SESSION['SHOWALERT']) && $_SESSION['SHOWALERT'] != ""){
 <style>
     body {
       background: url('../images/dashboard.png') no-repeat ;
+    }
     
 </style>
 
@@ -40,14 +41,14 @@ if(isset($_SESSION['SHOWALERT']) && $_SESSION['SHOWALERT'] != ""){
     <?php } ?>    
 </map>
 
-<div id="mission" >
-    <a onclick="showPanelAndHideMissionLabel();"><img src='../images/slider.png' style="width:100%;height: 100%"></a>
+<div id="sidePanelLabel" >
+    <a onclick="showPanelAndHideLabel();"><img src='../images/slider.png' style="width:100%;height: 100%"></a>
 </div>
 
-<div id="missionPanel" class="panel-articles panel-margin" style="height:90%;">
+<div id="sidePanel" class="panel-articles panel-margin" style="height:90%;">
     <div class=" container-panel">  
         <div class="close-div">
-            <button type="button" class="close" onclick="hidePanelAndShowMissionLabel();">&times;</button>
+            <button type="button" class="close" onclick="hidePanelAndShowLabel();">&times;</button>
         </div>
             <div style="width:100%;height:50%;background-color: white;">
             
@@ -142,16 +143,7 @@ if(isset($_SESSION['SHOWALERT']) && $_SESSION['SHOWALERT'] != ""){
         $('img[usemap]').rwdImageMaps();
     });
     
-    function showPanelAndHideMissionLabel() {
-        $("#mission").hide(400, function() {
-            location.href="#missionPanel";
-        });
-    }
     
-    function hidePanelAndShowMissionLabel() {
-        location.href="#";
-        $("#mission").show(400);
-    }
 
 </script>
 <?php
