@@ -44,7 +44,7 @@ while ($row = mysqli_fetch_array($result_popular)) {
 </div></a>
 
 <div id="articles" class="panel-articles panel-margin">
-    <div class=" container-temple">  
+    <div class=" container-panel">  
         <div class="close-div">
             <button type="button" class="close" onclick="location.href = '#home'">&times;</button>
         </div> 
@@ -178,10 +178,10 @@ while ($row = mysqli_fetch_array($result_popular)) {
                 if(myData.status === "success") {
                     var isArticleUpvotedByUser = myData.isArticleUpvoted; 
                     var likeOrDislike = "Like";
-                    var src="./noLike.png";
+                    var src="../images/noLike.png";
                     if(isArticleUpvotedByUser === "YES") {
                         likeOrDislike = "UnLike";
-                        src = "./thumbsUp.png";
+                        src = "../images/thumbsUp.png";
                     }                
                     $(".well").empty();
                     $(".well").append('<div id="article_content">');
@@ -200,7 +200,7 @@ while ($row = mysqli_fetch_array($result_popular)) {
                     $(".well").append('</div>');
                 }
             } else {
-
+                //take to the problem page
             }
         });
     }
@@ -211,11 +211,11 @@ while ($row = mysqli_fetch_array($result_popular)) {
             globalLockForUpvoting = true;
             var likeOrDislike = $('#likeOrDislike').text();
             if(likeOrDislike === "UnLike") {
-                $('#thumbsUpImage').attr("src","./noLike.png")
+                $('#thumbsUpImage').attr("src","../images/noLike.png")
                 $('#likeOrDislike').text("Like");
             } else {
                 $('#likeOrDislike').text("UnLike");
-                $("#thumbsUpImage").attr("src","./thumbsUp.png");
+                $("#thumbsUpImage").attr("src","../images/thumbsUp.png");
             }
             $.post("../includes/upvote_article.php",
                 {
@@ -229,9 +229,9 @@ while ($row = mysqli_fetch_array($result_popular)) {
                     if(myData.status === "error") {
                         if(likeOrDislike === "UnLike") {
                             $('#likeOrDislike').text("UnLike");
-                            $("#thumbsUpImage").attr("src","./thumbsUp.png");
+                            $("#thumbsUpImage").attr("src","../images/thumbsUp.png");
                         } else {
-                            $('#thumbsUpImage').attr("src","./noLike.png")
+                            $('#thumbsUpImage').attr("src","../images/noLike.png")
                             $('#likeOrDislike').text("Like");
                         } 
                     } 
@@ -247,14 +247,13 @@ while ($row = mysqli_fetch_array($result_popular)) {
         var wh = $(window).width();
         var ht = $(window).height();
         resizeEnd = setTimeout(function() {
-            resizeAndPosition(wh, ht);
+            resizeAndPositionTemple(wh, ht);
         }, 200);
     });
     $(document).ready(function() {
         var wh = $(window).width();
         var ht = $(window).height();
-        resizeAndPosition(wh, ht);
-        $(".flex").flex();
+        resizeAndPositionTemple(wh, ht);
     });
 </script>
 <?php

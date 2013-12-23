@@ -14,6 +14,11 @@ a:hover {
     cursor:pointer;
 }
 
+#wrapOverride {
+    min-height: 100%;
+    height:100%;
+    margin:0 auto -50px;
+}
 #article_heading {
     font-family:Georgia,serif;
     color:#4E443C;
@@ -208,13 +213,30 @@ a:hover {
     left:700px;
 
 }
+#sidePanelLabel {
+    display:block;
+    position:absolute;
+    z-index:3000;
+    width:8%;
+    min-width: 2%;
+    min-height: 3%;
+    height:12%;
+    top:80px;
+    left:0;
+}
+#library_light {
+    position: absolute;
+    z-index: 1;
+}
 .panel-articles{
     width: 100%;
     position: absolute;
+    top:65px;
+    left:0;
     background-color: #000;
     box-shadow: 4px -4px 4px rgba(0,0,0,0.2);
     margin-left: -102%;
-    z-index:20;
+    z-index:4000;
     -webkit-transition: all .6s ease-in-out;
     -moz-transition: all .6s ease-in-out;
     -o-transition: all .6s ease-in-out;
@@ -227,11 +249,8 @@ a:hover {
     opacity: 0.8;
 }
 
-.panel-margin {
-    margin-top:20px;
-}
 
-.container-temple {
+.container-panel {
     width:90%;
     height: 100%;
     margin-left:5%;

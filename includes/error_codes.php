@@ -39,7 +39,7 @@ function getAlertBanner($eStr) {
     }
     $msg = $error_codes[$eStr];
     $alertBanner = "";
-    $alertBanner .= '<div class="alert '.GetSeverity($msg[0]).' alert-fade" style="display: block;">';
+    $alertBanner .= '<div class="alert '.GetSeverity($msg[0]).' alert-fade" style="display:block;position:absolute;z-index:1999;right:0;top:60px;width:20%;">';
     $alertBanner .= '<strong>'.GetError($msg[0]).'</strong> '.$msg[1];
     $alertBanner .= '</div>';
     return $alertBanner;

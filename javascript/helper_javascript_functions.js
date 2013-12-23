@@ -30,7 +30,18 @@ function submitOnEnter(event, buttonToClick) {
 function guestLogin(login_form) {
     $('#email').val('rtfguest@gmail.com');
     $('#password').val('freebsd123$%^');
-	login_form.submit();
+    $('#login_form').submit();
+}
+
+function showPanelAndHideLabel() {
+    $("#sidePanelLabel").hide(300, function() {
+        location.href = "#sidePanel";
+    });
+}
+
+function hidePanelAndShowLabel() {
+    location.href = "#";
+    $("#sidePanelLabel").show(300);
 }
 
 
