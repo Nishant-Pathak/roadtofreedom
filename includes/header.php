@@ -19,5 +19,7 @@
     </head>
 
     <body>
+    <!-- tracking code -->
+    <?php include_once("analyticstracking.php") ?>
         <!-- Wrap all page content here -->
         <div id="wrapOverride">
