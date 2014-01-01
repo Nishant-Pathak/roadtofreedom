@@ -9,7 +9,11 @@ function resizeAndPositionTemple(wh,ht) {
     $('.selection-div').css({height:ht-'200'});
 }
 
-function resizeAndPositionDashboard(wh,ht) {
-    console.log("in resize function");
+function resizeSlidePanel(wh,ht) {
+    $('.panel-articles').css({height:ht-'80'});
+    $('.well').css({height:ht-'200'});
+    $('.selection-div').css({height:ht-'200'});
+}
+function resizeAndPositionTransparentImage(wh,ht) {
     $("#transparentImage").css({width:wh,height:ht});   
 }
