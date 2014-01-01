@@ -246,7 +246,7 @@ a:hover {
 .panel-articles:target{
     margin-left: 0%;
     background-color: black;
-    opacity: 0.8;
+    opacity: 1;
 }
 
 

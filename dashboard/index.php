@@ -33,12 +33,7 @@ if(isset($_SESSION['SHOWALERT']) && $_SESSION['SHOWALERT'] != ""){
 
 <img id="transparentImage" src="../images/transparentImage.png" usemap="#transparentImageMap" style="position:relative;"/>
 <map name="transparentImageMap">
-    <?php if($username === "notLogin") { ?>
-    <!--added onfocus as a hack to remove the outline which comes on area on clicking.(http://stackoverflow.com/questions/4351827/how-do-i-get-rid-of-this-border-outline-for-my-image-map-areas-when-clicked-os)-->
-        <area onfocus="blur();" shape="poly" Coords="1119, 71, 1116, 178, 1059, 306, 926, 368, 737, 498, 719, 682, 1513, 691, 1512, 406, 1384, 414, 1327, 359, 1264, 333, 1238, 272, 1215, 316, 1150, 241, 1122, 171, 1120, 71" href="#signIn_modal" data-toggle="modal"/>
-    <?php } else { ?>
-        <area onfocus="blur();" shape="poly" Coords="1119, 71, 1116, 178, 1059, 306, 926, 368, 737, 498, 719, 682, 1513, 691, 1512, 406, 1384, 414, 1327, 359, 1264, 333, 1238, 272, 1215, 316, 1150, 241, 1122, 171, 1120, 71" href="../city"/>
-    <?php } ?>    
+    <area onfocus="blur();" shape="poly" Coords="1119, 71, 1116, 178, 1059, 306, 926, 368, 737, 498, 719, 682, 1513, 691, 1512, 406, 1384, 414, 1327, 359, 1264, 333, 1238, 272, 1215, 316, 1150, 241, 1122, 171, 1120, 71" href="#"/>
 </map>
 
 <div id="sidePanelLabel" >
@@ -131,7 +126,7 @@ if(isset($_SESSION['SHOWALERT']) && $_SESSION['SHOWALERT'] != ""){
         var wh = $(window).width();
         var ht = $(window).height();
         resizeEnd = setTimeout(function() {
-          resizeAndPositionDashboard(wh, ht);
+          resizeAndPositionTransparentImage(wh, ht);
           $('img[usemap]').rwdImageMaps();
         }, 100);
     });
@@ -139,11 +134,10 @@ if(isset($_SESSION['SHOWALERT']) && $_SESSION['SHOWALERT'] != ""){
     $(document).ready(function() {
         var wh = $(window).width();
         var ht = $(window).height();
-        resizeAndPositionDashboard(wh, ht);
+        resizeAndPositionTransparentImage(wh, ht);
         $('img[usemap]').rwdImageMaps();
     });
-    
-    
+   
 
 </script>
 <?php

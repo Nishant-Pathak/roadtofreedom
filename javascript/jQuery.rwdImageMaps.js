@@ -15,7 +15,6 @@
                         $img.each(function() {
                                 if (typeof($(this).attr('usemap')) == 'undefined')
                                         return;
-                                
                                 var that = this,
                                         $that = $(that);
                                 // Since WebKit doesn't know the height until after the image has loaded, perform everything in an onload copy

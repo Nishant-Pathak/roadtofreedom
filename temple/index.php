@@ -40,13 +40,18 @@ while ($row = mysqli_fetch_array($result_popular)) {
     array_push($most_popular_array, array($row['article_name'], $row['article_path'], $row['image_path'],$row['article_id']));
 }
 ?>
-<a href="#articles"><div id="temple_book" >
-</div></a>
+<img id="transparentImage" src="../images/transparentImage.png" usemap="#transparentImageMap" style="position:relative;"/>
+<map name="transparentImageMap">
+    <area onfocus="blur();" shape="poly" Coords="720, 406, 747, 382, 797, 376, 835, 355, 870, 397, 868, 412, 802, 410, 718, 407" href="#sidePanel"/>  
+</map>
 
-<div id="articles" class="panel-articles panel-margin">
+<div id="sidePanelLabel" >
+    <a onclick="showPanelAndHideLabel();"><img src='../images/sliderArticles.png' style="width:100%;height: 100%"></a>
+</div>
+<div id="sidePanel" class="panel-articles panel-margin">
     <div class=" container-panel">  
         <div class="close-div">
-            <button type="button" class="close" onclick="location.href = '#home'">&times;</button>
+            <button type="button" class="close" onclick="hidePanelAndShowLabel();">&times;</button>
         </div> 
         <div class="search-div" >
             <input type="text" class="form-control" style="width:100%;" placeholder="Search"/>
@@ -247,14 +252,21 @@ while ($row = mysqli_fetch_array($result_popular)) {
         var wh = $(window).width();
         var ht = $(window).height();
         resizeEnd = setTimeout(function() {
-            resizeAndPositionTemple(wh, ht);
-        }, 200);
+          resizeSlidePanel(wh,ht);
+          resizeAndPositionTransparentImage(wh, ht);
+            $('img[usemap]').rwdImageMaps();
+        }, 100);
     });
+
     $(document).ready(function() {
         var wh = $(window).width();
         var ht = $(window).height();
-        resizeAndPositionTemple(wh, ht);
+        resizeSlidePanel(wh,ht);
+        resizeAndPositionTransparentImage(wh, ht);
+        $('img[usemap]').rwdImageMaps();
     });
+    
+
 </script>
 <?php
 include_once("../includes/footer.php");

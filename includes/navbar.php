@@ -40,7 +40,6 @@ if (login_check($mysqli) == true) {
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $username; ?><b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../city">City</a></li>
                         <li><a href="../temple">Temple</a></li>
                         <li><a href="../theatre">Theatre</a></li>
                         <li><a href="../arena">Arena</a></li>
