@@ -25,7 +25,7 @@ $error_codes = array(
     "DEFAULT"                    => array(11000, "Broken Link---/~/----- ."),
     "VALID_LOGOUT"               => array(10010, "Logged Out Successfully."),
     "INVALID_LOGOUT"             => array(11010, "Invalid logout. Please try again."),
-    "VALID_LOGIN"                => array(10020, "Logged in Successfully."),
+    "VALID_LOGIN"                => array(10020, "Logged In Successfully."),
     "INVALID_LOGIN"              => array(11020, "Invalid login. Please try again."),
     "VALID_REGISTRATION"         => array(10030, "Your account has been registered. Please login."),
     "INVALID_REGISTRATION"       => array(11030, "Unable to register. Please retry."),
@@ -39,7 +39,7 @@ function getAlertBanner($eStr) {
     }
     $msg = $error_codes[$eStr];
     $alertBanner = "";
-    $alertBanner .= '<div class="alert '.GetSeverity($msg[0]).' alert-fade" style="display:block;position:absolute;z-index:1999;right:0;top:60px;width:20%;">';
+    $alertBanner .= '<div class="alert '.GetSeverity($msg[0]).' alert-fade" style="display:block;position:absolute;z-index:1999;right:0;bottom:0px;width:20%;">';
     $alertBanner .= '<strong>'.GetError($msg[0]).'</strong> '.$msg[1];
     $alertBanner .= '</div>';
     return $alertBanner;

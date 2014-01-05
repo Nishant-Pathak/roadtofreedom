@@ -46,10 +46,35 @@ while ($row = mysqli_fetch_array($result_popular)) {
     <area onfocus="blur();" shape="poly" Coords="811, 522, 750, 591, 767, 605, 794, 585, 763, 646, 767, 696, 809, 673, 850, 737, 868, 681, 856, 564, 835, 548, 814, 520" href="#sidePanel"/>  
 </map>
 
+<div class="navigation" id="nav">
+    <div class="item home_nav">
+        <img src="../images/bg_home.png" alt="" width="199" height="199" class="circle"/>
+        <a href="#" class="icon"></a>
+        <ul>
+            <?php if ($username != 'notLogin') { ?>
+            <li><a href="../arena/">Arena</a></li>
+            <li><a href="../library/">Library</a></li>
+            <li><a href="../temple/">Temple</a></li>
+            <li><a href="../theatre/">Theater</a></li>
+            <?php } else { ?>
+            <li><a href="#signIn_modal" data-toggle="modal">SignIn</a></li>
+            <?php } ?>
+        </ul>
+    </div>
+    <div class="item articles_nav">
+        <img src="../images/bg_home_green.png" alt="" width="199" height="199" class="circle"/>
+        <a href="#" class="icon"></a>
+        <ul>
+            <li><a href="#sidePanel">Articles</a></li>
+        </ul>
+    </div>
+</div>
+
+<!--
 <div id="sidePanelLabel" >
     <a onclick="showPanelAndHideLabel();"><img src='../images/sliderArticles.png' style="width:100%;height: 100%"></a>
 </div>
-
+-->
 <div id="sidePanel" class="panel-articles panel-margin">
     <div class=" container-panel">  
         <div class="close-div">
@@ -269,6 +294,39 @@ while ($row = mysqli_fetch_array($result_popular)) {
             });
         }
     }
+    
+        //javascript for menu bubbles
+    $(function() {
+        $('#nav > div').hover(
+        function () {
+            var $this = $(this);
+            $this.find('img').stop().animate({
+                'width'     :'199px',
+                'height'    :'199px',
+                'top'       :'-25px',
+                'left'      :'-25px',
+                'opacity'   :'1.0'
+            },500,'easeOutBack',function(){
+                $(this).parent().find('ul').fadeIn(700);
+            });
+
+            $this.find('a:first,h2').addClass('active');
+        },
+        function () {
+            var $this = $(this);
+            $this.find('ul').fadeOut(500);
+            $this.find('img').stop().animate({
+                'width'     :'52px',
+                'height'    :'52px',
+                'top'       :'0px',
+                'left'      :'0px',
+                'opacity'   :'0.1'
+            },5000,'easeOutBack');
+
+            $this.find('a:first,h2').removeClass('active');
+        }
+        );
+    });
 
 </script>
 <?php

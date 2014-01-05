@@ -231,8 +231,9 @@ a:hover {
 .panel-articles{
     width: 100%;
     position: absolute;
-    top:65px;
+    top:52px;
     left:0;
+    height:100%;
     background-color: #000;
     box-shadow: 4px -4px 4px rgba(0,0,0,0.2);
     margin-left: -102%;
@@ -249,7 +250,14 @@ a:hover {
     opacity: 1;
 }
 
-
+.fullScreen {
+    position: absolute;
+    top:0px;
+  left: 0;
+  width:100%;
+  height: 100%;
+   
+}
 .container-panel {
     width:90%;
     height: 100%;
@@ -339,19 +347,33 @@ a:hover {
 
 .mission {
     top: 80px;
-    left:30px;
+    left:38%;
 }
 
 .home{
    top:80px;
-   left:165px;
+   left:48%;
 }
 
 .contact {
     top: 80px;
-    left: 300px;
+    left: 58%;
 }
 
+.home_nav {
+    top: 80px;
+    left:42%;
+}
+
+.articles_nav {
+    top: 80px;
+    left:52%;
+}
+
+.videos_nav {
+    top: 80px;
+    left:52%;
+}
 a.icon{
     width:52px;
     height:52px;
@@ -373,6 +395,16 @@ a.icon{
     background:transparent url(../images/contact_green.png) no-repeat 0px 0px;
 }
 
+.home_nav a.icon{
+    background:transparent url(../images/home.png) no-repeat 0px 0px;
+}
+.articles_nav a.icon{
+    background:transparent url(../images/articles_green.png) no-repeat 0px 0px;
+}
+
+.videos_nav a.icon{
+    background:transparent url(../images/videos_green.png) no-repeat 0px 0px;
+}
 
 .navigation .item a.active{
     background-position:0px -52px;

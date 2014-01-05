@@ -33,7 +33,7 @@ if(isset($_SESSION['SHOWALERT']) && $_SESSION['SHOWALERT'] != ""){
 
 <img id="transparentImage" src="../images/transparentImage.png" usemap="#transparentImageMap" style="position:relative;"/>
 <map name="transparentImageMap">
-    <area onfocus="blur();" shape="poly" Coords="1119, 71, 1116, 178, 1059, 306, 926, 368, 737, 498, 719, 682, 1513, 691, 1512, 406, 1384, 414, 1327, 359, 1264, 333, 1238, 272, 1215, 316, 1150, 241, 1122, 171, 1120, 71" href="#"/>
+    <area onfocus="blur();" shape="poly" Coords="1119, 71, 1116, 178, 1059, 306, 926, 368, 737, 498, 719, 682, 1513, 691, 1512, 406, 1384, 414, 1327, 359, 1264, 333, 1238, 272, 1215, 316, 1150, 241, 1122, 171, 1120, 71" />
 </map>
 
 <!-- Menu Item Bubbles -->
@@ -49,10 +49,14 @@ if(isset($_SESSION['SHOWALERT']) && $_SESSION['SHOWALERT'] != ""){
         <img src="../images/bg_home.png" alt="" width="199" height="199" class="circle"/>
         <a href="#" class="icon"></a>
         <ul>
+            <?php if ($username != 'notLogin') { ?>
             <li><a href="../arena/">Arena</a></li>
             <li><a href="../library/">Library</a></li>
             <li><a href="../temple/">Temple</a></li>
-            <li><a href="../theater/">Theater</a></li>
+            <li><a href="../theatre/">Theater</a></li>
+            <?php } else { ?>
+            <li><a href="#signIn_modal" data-toggle="modal">SignIn</a></li>
+            <?php } ?>
         </ul>
     </div>
     <div class="item contact">

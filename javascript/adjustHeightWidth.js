@@ -10,7 +10,7 @@ function resizeAndPositionTemple(wh,ht) {
 }
 
 function resizeSlidePanel(wh,ht) {
-    $('.panel-articles').css({height:ht-'80'});
+    $('.panel-articles').css({height:ht-'40'});
     $('.well').css({height:ht-'200'});
     $('.selection-div').css({height:ht-'200'});
 }

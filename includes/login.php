@@ -11,6 +11,7 @@ if (isset($_POST['email'], $_POST['password'])) {
     $password = md5($_POST['password']); // The hashed password.
     if (login($email, $password, $mysqli) == true) {
         // Login success
+        $_SESSION['SHOWALERT'] = "VALID_LOGIN";
         header('Location: ../dashboard');
     } else {
         // Login failed
