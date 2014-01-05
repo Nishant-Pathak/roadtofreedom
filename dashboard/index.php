@@ -36,9 +36,35 @@ if(isset($_SESSION['SHOWALERT']) && $_SESSION['SHOWALERT'] != ""){
     <area onfocus="blur();" shape="poly" Coords="1119, 71, 1116, 178, 1059, 306, 926, 368, 737, 498, 719, 682, 1513, 691, 1512, 406, 1384, 414, 1327, 359, 1264, 333, 1238, 272, 1215, 316, 1150, 241, 1122, 171, 1120, 71" href="#"/>
 </map>
 
-<div id="sidePanelLabel" >
-    <a onclick="showPanelAndHideLabel();"><img src='../images/slider.png' style="width:100%;height: 100%"></a>
+<!-- Menu Item Bubbles -->
+<div class="navigation" id="nav">
+    <div class="item mission">
+        <img src="../images/bg_home_orange.png" alt="" width="199" height="199" class="circle"/>
+        <a href="#" class="icon"></a>
+        <ul>
+            <li><a href="#sidePanel">Mission</a></li>
+        </ul>
+    </div>
+    <div class="item home">
+        <img src="../images/bg_home.png" alt="" width="199" height="199" class="circle"/>
+        <a href="#" class="icon"></a>
+        <ul>
+            <li><a href="../arena/">Arena</a></li>
+            <li><a href="../library/">Library</a></li>
+            <li><a href="../temple/">Temple</a></li>
+            <li><a href="../theater/">Theater</a></li>
+        </ul>
+    </div>
+    <div class="item contact">
+        <img src="../images/bg_home_green.png" alt="" width="199" height="199" class="circle"/>
+        <a href="#" class="icon"></a>
+        <ul>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
 </div>
+
 
 <div id="sidePanel" class="panel-articles panel-margin" style="height:90%;">
     <div class=" container-panel">  
@@ -138,6 +164,38 @@ if(isset($_SESSION['SHOWALERT']) && $_SESSION['SHOWALERT'] != ""){
         $('img[usemap]').rwdImageMaps();
     });
    
+    //javascript for menu bubbles
+    $(function() {
+        $('#nav > div').hover(
+        function () {
+            var $this = $(this);
+            $this.find('img').stop().animate({
+                'width'     :'199px',
+                'height'    :'199px',
+                'top'       :'-25px',
+                'left'      :'-25px',
+                'opacity'   :'1.0'
+            },500,'easeOutBack',function(){
+                $(this).parent().find('ul').fadeIn(700);
+            });
+
+            $this.find('a:first,h2').addClass('active');
+        },
+        function () {
+            var $this = $(this);
+            $this.find('ul').fadeOut(500);
+            $this.find('img').stop().animate({
+                'width'     :'52px',
+                'height'    :'52px',
+                'top'       :'0px',
+                'left'      :'0px',
+                'opacity'   :'0.1'
+            },5000,'easeOutBack');
+
+            $this.find('a:first,h2').removeClass('active');
+        }
+        );
+    });
 
 </script>
 <?php
