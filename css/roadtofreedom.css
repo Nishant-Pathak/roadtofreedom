@@ -71,6 +71,9 @@ a:hover {
     hyphens: auto;
 }
 
+#article_content {
+    padding: 20px;
+}
 #article_content pre:first-letter{
     text-transform: uppercase;
 }

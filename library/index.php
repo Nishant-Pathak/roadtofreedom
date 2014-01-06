@@ -193,6 +193,46 @@ while ($row = mysqli_fetch_array($result_popular)) {
 
 
 <script>
+    $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange',removeScrollBarOnNonFullScreen);
+
+function removeScrollBarOnNonFullScreen() {
+    var element = document.getElementById("article_content");
+    if (!document.fullscreenElement && // alternative standard method
+        !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
+        element.style.overflowY='hidden';    
+        $('#fScreenImage').attr("src","../images/fullScreen.png")
+    }
+}
+
+function toggleFullScreen() {
+    var element = document.getElementById("article_content");
+    if (!document.fullscreenElement && // alternative standard method
+        !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) { // current working methods
+        element.style.overflowY='scroll';
+        $('#fScreenImage').attr("src","../images/exitFullScreen.png")
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+        }
+    } else {
+        element.style.overflowY='hidden';
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
+    }
+}
+
      var resizeEnd;
     $(window).bind('resize', function(e) {
         clearTimeout(resizeEnd);
@@ -239,6 +279,8 @@ while ($row = mysqli_fetch_array($result_popular)) {
                     }                
                     $(".well").empty();
                     $(".well").append('<div id="article_content">');
+                    $("#article_content").append('<div id="fScreen" style="float:right;">');
+                    $("#fScreen").append('<a onclick="toggleFullScreen();">' + '<img id="fScreenImage" src="../images/fullScreen.png" />' +  '</a>');
                     $("#article_content").append('<div id="likeDislikeDiv"></div>');
                     $("#likeDislikeDiv").append('<img id="thumbsUpImage" data-toggle="tooltip" title="first tooltip" src=' + src + ' />');
                     $("#likeDislikeDiv").append('<br>');
