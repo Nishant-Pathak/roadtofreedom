@@ -83,7 +83,7 @@ $youtube = new Google_YoutubeService($client);
             <embed
             accesskey="" width="500" height="350"
             class="" src="http://www.youtube.com/v/<?php echo $currentVId; ?>"
-            contenteditable="" type="application/x-shockwave-flash">
+            contenteditable="" type="application/x-shockwave-flash"  allowfullscreen="true" >
             </embed>
             </div>
         </div> 
