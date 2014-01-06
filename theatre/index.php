@@ -6,42 +6,15 @@ include_once("../google-api-php-client/src/Google_Client.php");
 include_once("../google-api-php-client/src/contrib/Google_YouTubeService.php");
 
 
-$OAUTH2_CLIENT_ID = '304361498377-152p6amk9qhmociu982lthg4tteqivbn.apps.googleusercontent.com';
-$OAUTH2_CLIENT_SECRET = 'AekAxpl1pOVZ3QIux43nHJGP';
-
+$API_KEY = "AIzaSyB2csnwuzifKTQj9acc3jiK0Edro177acw";
 $client = new Google_Client();
-$client->setClientId($OAUTH2_CLIENT_ID);
-$client->setClientSecret($OAUTH2_CLIENT_SECRET);
-
-$redirect = filter_var('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
-           FILTER_SANITIZE_URL);
-
-$client->setRedirectUri($redirect);
+$client->setDeveloperKey($API_KEY);
 $youtube = new Google_YoutubeService($client);
-
-if (isset($_GET['code'])) {
-  if (strval($_SESSION['state']) !== strval($_GET['state'])) {
-    die('The session state did not match.');
-  }
-
-  $client->authenticate();
-  $_SESSION['token'] = $client->getAccessToken();
-  header('Location: ' . $redirect);
-}
-
-if (isset($_SESSION['token'])) {
-  $client->setAccessToken($_SESSION['token']);
-}
-
-
-// Check if access token successfully acquired
-if ($client->getAccessToken()) {
   try {
     // grap channel resource from channel id
     $channelResponse = $youtube->channels->listChannels('contentDetails', array(
         'id' => 'UCNJcSUSzUeFm8W9P7UUlSeQ'
     ));
-
     $channelItems     = $channelResponse['items'][0];
     $contentDetails   = $channelItems['contentDetails'];
     $relatedPlaylists = $contentDetails['relatedPlaylists'];
@@ -53,26 +26,12 @@ if ($client->getAccessToken()) {
     ));
 
   } catch (Google_ServiceException $e) {
-    $htmlBody .= sprintf('<p>A service error occurred: <code>%s</code></p>',
+    error_log('[Theatre] : <p>A service error occurred: <code>%s</code></p>',
         htmlspecialchars($e->getMessage()));
   } catch (Google_Exception $e) {
-    $htmlBody .= sprintf('<p>An client error occurred: <code>%s</code></p>',
+    error_log('[Theatre] : <p>An client error occurred: <code>%s</code></p>',
         htmlspecialchars($e->getMessage()));
   }
-
-  $_SESSION['token'] = $client->getAccessToken();
-} else {
-  // If the user hasn't authorized the app, initiate the OAuth flow
-  $state = mt_rand();
-  $client->setState($state);
-  $_SESSION['state'] = $state;
-
-  $authUrl = $client->createAuthUrl();
-  $htmlBody = <<<END
-  <h3>Authorization Required</h3>
-  <p>You need to $authUrl <a href="$authUrl">authorize access</a> before proceeding.<p>
-END;
-}
 ?>
 <!-- Begin page content -->
 <style>
@@ -141,8 +100,8 @@ END;
                     <div id="One" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <?php
-                             $i =0;
-                             
+                             $i =0;      
+                             if(isset($PlayListItems)) {
                              foreach ($PlayListItems['items'] as $searchResult) {
                                 if ($i++ === 10) { break; }
                                  $vName = $searchResult['snippet']['title'];   
@@ -154,6 +113,7 @@ END;
                                 <br/>
                             <?php
                             }
+                             }
                             ?>
                         </div>
                     </div>
